@@ -1,0 +1,23 @@
+# Node.js dependencies
+/node_modules
+
+# Compiled binary addons (optional)
+/build/Release
+
+# Environment variables
+.env
+
+# Log files
+logs/
+*.log
+
+# Dependency lock file
+package-lock.json
+
+# Cache directories
+.npm/
+.yarn/
+.pnpm/
+
+# Visual Studio Code settings
+.vscode/
