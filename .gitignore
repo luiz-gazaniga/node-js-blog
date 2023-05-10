@@ -21,3 +21,5 @@ package-lock.json
 
 # Visual Studio Code settings
 .vscode/
+
+/public/posts

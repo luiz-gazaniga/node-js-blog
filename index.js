@@ -9,7 +9,8 @@ const router = express.Router();
 
 const bodyParser = require('body-parser');
 
-const Post = require('./database/models/Post');
+const fileUpload = require('express-fileupload');
+
 const createPost = require('./controllers/createPost');
 const getAllPosts = require('./controllers/getAllPosts');
 const getPost = require('./controllers/getPost');
@@ -17,6 +18,8 @@ const getPost = require('./controllers/getPost');
 const app = new express()
 
 mongoose.connect('mongodb://localhost/node-js-blog')
+
+app.use(fileUpload());
 
 app.use(express.static('public'))
 
