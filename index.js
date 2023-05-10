@@ -31,6 +31,20 @@ app.use(bodyParser.json())
 
 app.use(bodyParser.urlencoded({ extended: true}))
 
+const validateCratePostMiddleware = (req, res, next) => {
+    if (!req.files || 
+        !req.body.username ||
+        !req.body.title ||
+        !req.body.subtitle ||
+        !req.body.content){
+        return res.redirect('/posts/new');
+    }
+
+    next();
+}
+
+app.use('/posts/store', validateCratePostMiddleware);
+
 app.get('/', getAllPosts);
 
 app.get('/posts/new', (req, res) => {
