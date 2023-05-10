@@ -5,15 +5,14 @@ const expressEdge = require('express-edge')
 
 const mongoose = require('mongoose')
 
-const router = express.Router();
-
 const bodyParser = require('body-parser');
 
 const fileUpload = require('express-fileupload');
 
-const createPost = require('./controllers/createPost');
-const getAllPosts = require('./controllers/getAllPosts');
-const getPost = require('./controllers/getPost');
+const storePost = require('./controllers/storePostController');
+const homePageController = require('./controllers/homePage');
+const createPostController = require('./controllers/createPost');
+const getPost = require('./controllers/getPostController');
 
 const app = new express()
 
@@ -45,14 +44,11 @@ const validateCratePostMiddleware = (req, res, next) => {
 
 app.use('/posts/store', validateCratePostMiddleware);
 
-app.get('/', getAllPosts);
+app.get('/', homePageController);
 
-app.get('/posts/new', (req, res) => {
-    res.render('create')
-})
+app.get('/posts/new', createPostController);
 
-//router.post('/posts/store', createPost);
-app.post('/posts/store', createPost);
+app.post('/posts/store', storePost);
 
 app.get('/about', (req, res) => {
     res.render('about')
