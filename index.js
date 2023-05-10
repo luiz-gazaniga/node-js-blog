@@ -1,5 +1,4 @@
 const express = require('express')
-const path = require('path')
 
 const expressEdge = require('express-edge')
 
@@ -50,15 +49,7 @@ app.get('/posts/new', createPostController);
 
 app.post('/posts/store', storePost);
 
-app.get('/about', (req, res) => {
-    res.render('about')
-})
-
 app.get('/posts/:id', getPost);
-
-app.get('/contact', (req, res) => {
-    res.render('contact')
-})
 
 app.listen(4000, () => {
     console.log('App listening on port 4000')
