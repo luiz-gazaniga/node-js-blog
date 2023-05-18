@@ -1,6 +1,10 @@
-const express = require('express')
+require('dotenv').config();
 
-const edge = require('edge.js')
+const express = require('express');
+
+const edge = require('edge.js');
+
+const cloudinary = require('cloudinary');
 
 const expressEdge = require('express-edge')
 
@@ -35,17 +39,23 @@ const app = new express();
 
 const mongoStore = new connectMongo({
     mongooseConnection: mongoose.connection,
-    mongoUrl: 'mongodb://localhost/node-js-blog' // Specify your MongoDB URL here
+    mongoUrl: process.env.DB_URI // Specify your MongoDB URL here
   });
 
 app.use(expressSession({
-    secret: 'secret',
+    secret: process.env.EXPRESS_SESSION_KEY,
     store: mongoStore
 }));
 
-mongoose.connect('mongodb://localhost/node-js-blog');
+mongoose.connect(process.env.DB_URI);
 
 app.use(connectFlash());
+
+cloudinary.config({
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECREAT,
+    cloud_name: process.env.CLOUDINARY_NAME
+});
 
 app.use(fileUpload());
 
@@ -82,6 +92,6 @@ app.get('/auth/logout', auth, logoutController);
 
 app.use((_req, res) => res.render('not-found'));
 
-app.listen(4000, () => {
-    console.log('App listening on port 4000')
+app.listen(process.env.PORT, () => {
+    console.log(`App listening on port ${process.env.PORT}`);
 })

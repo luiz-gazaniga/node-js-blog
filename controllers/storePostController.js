@@ -1,13 +1,16 @@
 const Post = require('../database/models/Post');
 const path = require('path')
+const cloudinary = require('cloudinary');
 
 const createPost = async (req, res) => {
   const { image } = req.files;
-  await image.mv(path.join(__dirname, '..', 'public', 'posts', image.name));
+  const uploadPath = path.join(__dirname, '..', 'public', 'posts', image.name);
+  await image.mv(uploadPath);
 
+  const imageResult = await cloudinary.v2.uploader.upload(uploadPath);
   const post = new Post({
     ...req.body,
-    image: `/posts/${image.name}`,
+    image: imageResult.secure_url,
     author: req.session.userId
   });
 
