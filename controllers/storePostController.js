@@ -7,7 +7,8 @@ const createPost = async (req, res) => {
 
   const post = new Post({
     ...req.body,
-    image: `/posts/${image.name}`
+    image: `/posts/${image.name}`,
+    author: req.session.userId
   });
 
   post.save()
