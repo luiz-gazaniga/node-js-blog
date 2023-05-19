@@ -6,7 +6,7 @@ const storeUserController = async (req, res) => {
 
     await user.save();
 
-    res.redirect('/');
+    res.redirect(302, '/');
   } catch (error) {
     console.error('Error storing user:', error);
     const registrationErrors = Object.values(error.errors).map(err => err.message);
