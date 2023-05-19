@@ -1,9 +1,8 @@
-const redirectIfAuthenticatedMiddleware = async (req, res, next) => {
-    //fetch user from database
-    if (req.session && req.session.userId){
-        return res.redirect('/');
+const redirectIfAuthenticatedMiddleware = (req, res, next) => {
+    if (req.session && req.session.userId) {
+      return res.redirect('/');
     }
     next();
-}
-
-module.exports = redirectIfAuthenticatedMiddleware;
+  };
+  
+  module.exports = redirectIfAuthenticatedMiddleware;  

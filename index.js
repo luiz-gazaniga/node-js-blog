@@ -10,7 +10,7 @@ const connectMongo = require('connect-mongo');
 const connectFlash = require('connect-flash');
 
 const validateCratePostMiddleware = require('./middleware/storePostMiddleware');
-const auth = require('./middleware/auth');
+const auth = require('./middleware/authMiddleware');
 const redirectIfAuthenticatedMiddleware = require('./middleware/redirectIfAuthenticatedMiddleware');
 
 const storePostController = require('./controllers/storePostController');
