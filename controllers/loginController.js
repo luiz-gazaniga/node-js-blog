@@ -1,5 +1,5 @@
-const loginController = async (req, res) => {
+const loginController = (_req, res) => {
     res.render('login');
-};
-
-module.exports = loginController;
+  };
+  
+  module.exports = loginController;
