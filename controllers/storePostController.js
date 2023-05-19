@@ -3,6 +3,7 @@ const path = require('path')
 const cloudinary = require('cloudinary');
 
 const createPost = async (req, res) => {
+  try{
   const { image } = req.files;
   const uploadPath = path.join(__dirname, '..', 'public', 'posts', image.name);
   await image.mv(uploadPath);
@@ -22,6 +23,10 @@ const createPost = async (req, res) => {
       console.error(err);
       res.send('Error creating post');
     });
+  }
+  catch(ex){
+    console.log(ex);
+  }
 };
 
 module.exports = createPost;
