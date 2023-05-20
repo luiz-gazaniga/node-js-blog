@@ -1,5 +1,5 @@
 const User = require('../database/models/User');
-const bcrypt = require('bcrypt');
+const bcryptjs = require('bcryptjs');
 
 const loginUserController = async (req, res) => {
   const { email, password } = req.body;
@@ -8,7 +8,7 @@ const loginUserController = async (req, res) => {
     const user = await User.findOne({ email });
 
     if (user) {
-      const isSame = await bcrypt.compare(password, user.password);
+      const isSame = await bcryptjs.compare(password, user.password);
 
       if (isSame) {
         req.session.userId = user._id;
