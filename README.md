@@ -30,9 +30,8 @@ This is a web application built with Node.js, Express, and MongoDB. It provides 
 - Interact with the MongoDB database using the Mongoose Object-Data Modeling (ODM) library.
 
 ## Prerequisites
-To get the most out of this course, you should have:
-- Basic understanding of the JavaScript programming language.
-- Familiarity with HTML and CSS.
+- MongoDB
+- Docker.
 
 ## Install
 ```
@@ -45,10 +44,10 @@ To get the most out of this course, you should have:
 ```
 
 ## Run Local
-1. Create an account on https://cloudinary.com/
+1. Create an account on Cloudinary.
 2. Access the dashboard.
-3. Create an .env file on the root folder
-4. Fill with this information:
+3. Create an `.env` file in the root folder.
+4. Fill it with the following information:
 ```
 CLOUDINARY_NAME=[CLOUDINARY_NAME]
 CLOUDINARY_API_KEY=[CLOUDINARY_API_KEY]
@@ -65,7 +64,7 @@ PORT=4000
 ## docker-compose
 1. Create an account on https://cloudinary.com/
 2. Access the dashboard.
-3. Open the file docker-compose.yml
+3. Open the file `docker-compose.yml`.
 4. Replace the envoriments variables with the information of the Cloudinary
 ```
 - CLOUDINARY_NAME=[CLOUDINARY_NAME]
