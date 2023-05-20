@@ -1,4 +1,4 @@
-# Blog
+# Node Blog MVC
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
@@ -44,10 +44,36 @@ To get the most out of this course, you should have:
 > npm test 
 ```
 
-## Run
+## Run Local
+1. Create an account on https://cloudinary.com/
+2. Access the dashboard.
+3. Create an .env file on the root folder
+4. Fill with this information:
 ```
-> node .\index.js
+CLOUDINARY_NAME=[CLOUDINARY_NAME]
+CLOUDINARY_API_KEY=[CLOUDINARY_API_KEY]
+CLOUDINARY_API_SECRET=[CLOUDINARY_API_SECRET]
+EXPRESS_SESSION_KEY=[EXPRESS_SESSION_KEY] ////Can use any key
+DB_URI=mongodb://localhost/node-js-blog
+PORT=4000
 ```
+5. Run
+```
+> npm start
+```
+
+## docker-compose
+1. Create an account on https://cloudinary.com/
+2. Access the dashboard.
+3. Open the file docker-compose.yml
+4. Replace the envoriments variables with the information of the Cloudinary
+```
+- CLOUDINARY_NAME=[CLOUDINARY_NAME]
+- CLOUDINARY_API_KEY=[CLOUDINARY_API_KEY]
+- CLOUDINARY_API_SECRET=[EXPRESS_SESSION_KEY] //Can use any key
+- EXPRESS_SESSION_KEY=RANDOM
+```
+5. Run docker-compose up -d
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
