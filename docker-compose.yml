@@ -8,10 +8,10 @@ services:
       - '3000:3000'
     environment:
       - DB_URI=mongodb://mongodb:27017/node-js-blog
-      - CLOUDINARY_NAME=dfbyyfrte
-      - CLOUDINARY_API_KEY=459481545275713
-      - CLOUDINARY_API_SECRET=JxNl0l9Lz--18yAcL3guXRH3k9c
-      - EXPRESS_SESSION_KEY=RANDOM
+      - CLOUDINARY_NAME=[CLOUDINARY_NAME]
+      - CLOUDINARY_API_KEY=[CLOUDINARY_API_KEY]
+      - CLOUDINARY_API_SECRET=[CLOUDINARY_API_SECRET]
+      - EXPRESS_SESSION_KEY=[RANDOM]
       - PORT=3000
     depends_on:
       - mongodb
